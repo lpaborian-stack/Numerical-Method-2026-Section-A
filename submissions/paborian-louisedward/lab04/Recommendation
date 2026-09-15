@@ -1,1 +1,13 @@
+For standard civil engineering field calculations with theta <= 30 degrees, 
+a 2-term Maclaurin series expansion (or small-angle approximation theta - theta^3/6) 
+is recommended.
 
+Numerical Evidence & Justification:
+1. Small Angle Limit (sin(x) ~ x): The 1-term approximation exceeds the 0.1% error 
+   tolerance past 4.5 degrees (giving ~0.45% error at 10 degrees and ~4.7% at 30 degrees).
+2. Accuracy: Adding a second term reduces the maximum error at 30 degrees down to 
+   ~0.076%, which fully satisfies the strictly required < 0.1% threshold across 
+   the entire 0°-30° operating envelope.
+3. Simplicity vs Speed: While built-in math.sin() offers floating-point exactness, 
+   the 2-term series allows direct, lightweight evaluation on restricted hardware 
+   or microcontroller sensor nodes with negligible computational overhead.
